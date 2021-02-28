@@ -22,6 +22,6 @@ public class GoodService {
      * @return java.lang.Boolean
      */
     public Boolean deliverGoods(DeliverReq deliverReq) {
-        return false;
+        return true;
     }
 }
