@@ -9,7 +9,8 @@ import java.util.Map;
 /**
  * Title: RebuildPrizeTest <br>
  * ProjectName: learn-design <br>
- * description: TODO <br>
+ * description: 工厂模式重构代码，其避免创建者与具体的产品逻辑耦合、满足单一职责，每一个业务 <br>
+ *     逻辑实现都在所属自己的类中完成、满足开闭原则，无需更改使用调用方可以在程序中引入新的产品类型。
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
