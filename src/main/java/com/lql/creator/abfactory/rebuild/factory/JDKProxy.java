@@ -6,7 +6,8 @@ import java.lang.reflect.Proxy;
 /**
  * Title: JDKProxy <br>
  * ProjectName: learn-design <br>
- * description: 定义抽象工厂 <br>
+ * description: 定义抽象工厂,此模式所要解决的问题就是在一个产品族存在多个不同类型的产品（redis集群、操作系统）情况下,<br>
+ *     接口的选择问题。
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
