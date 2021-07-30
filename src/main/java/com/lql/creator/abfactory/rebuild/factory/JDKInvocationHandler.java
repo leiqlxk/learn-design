@@ -1,7 +1,6 @@
 package com.lql.creator.abfactory.rebuild.factory;
 
 import com.lql.creator.abfactory.rebuild.utils.ClassLoaderUtils;
-import org.springframework.util.ClassUtils;
 import sun.misc.ClassLoaderUtil;
 
 import java.lang.reflect.InvocationHandler;
