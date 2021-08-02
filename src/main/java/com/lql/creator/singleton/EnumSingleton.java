@@ -14,7 +14,7 @@ package com.lql.creator.singleton;
  * @since: 2021/7/30 17:30 <br>
  */
 public enum EnumSingleton {
-
+    // 实例
     INSTANCE;
 
     private String objectName;
