@@ -1,6 +1,6 @@
-package com.lql.creator.factory.rebuild;
+package com.lql.creator.simplefactory.rebuild;
 
-import com.lql.creator.factory.rebuild.store.ICommodity;
+import com.lql.creator.simplefactory.rebuild.store.ICommodity;
 import org.junit.Test;
 
 import java.util.HashMap;

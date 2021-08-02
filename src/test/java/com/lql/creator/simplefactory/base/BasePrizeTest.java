@@ -1,4 +1,4 @@
-package com.lql.creator.factory.base;
+package com.lql.creator.simplefactory.base;
 
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
