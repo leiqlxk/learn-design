@@ -1,17 +1,12 @@
 package com.lql.creator.singleton.demo8;
 
-import org.omg.CORBA.CharSeqHolder;
-import sun.awt.CharsetString;
-
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 /**
  * Title: RuntimeTest <br>
  * ProjectName: learn-design <br>
- * description: TODO <br>
+ * description: runtime单例类测试 <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
@@ -22,13 +17,13 @@ public class RuntimeTest {
     public static void main(String[] args) throws IOException {
         Runtime runtime = Runtime.getRuntime();
 
-        Process ipconfg = runtime.exec("ipconfg");
+        Process ipconfg = runtime.exec("ipconfig");
 
         InputStream inputStream = ipconfg.getInputStream();
 
-        byte[] bytes = new byte[inputStream.available()];
-        inputStream.read(bytes);
+        byte[] bytes = new byte[1024 * 1024* 100];
+        int length = inputStream.read(bytes);
 
-        System.out.println(new String(bytes, "GBK"));
+        System.out.println(new String(bytes, 0, length,"GBK"));
     }
 }
