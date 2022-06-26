@@ -7,16 +7,20 @@ package com.lql.structure.decorate;
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/8/11 10:43 <br>
+ * @since: 2022/6/26 21:22 <br>
  */
 public class Client {
 
     public static void main(String[] args) {
-        Beverage houseBlend = new HouseBlend();
+        FastFood fridRice = new FridRice();
+        Decorate egg = new Egg(fridRice);
+        System.out.println(egg.getDesc());
+        System.out.println(egg.cost());
 
-        Beverage milk = new Milk(houseBlend);
-        Beverage mocha = new Mocha(milk);
+        System.out.println("===================");
+        Decorate bacon = new Bacon(egg);
+        System.out.println(bacon.getDesc());
+        System.out.println(bacon.cost());
 
-        System.out.println(mocha.cost());
     }
 }
