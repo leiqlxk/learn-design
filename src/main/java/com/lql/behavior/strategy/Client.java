@@ -12,12 +12,10 @@ package com.lql.behavior.strategy;
 public class Client {
 
     public static void main(String[] args) {
-        Duck duck = new Duck();
-
-        duck.setQuackBehavior(new Quack());
-        duck.performQuack();
-
-        duck.setQuackBehavior(new Squeak());
-        duck.performQuack();
+        SaleMan saleMan = new SaleMan(new FirstStrategy());
+        saleMan.saleManShow();
+        
+        saleMan.setStrategy(new SecondStrategy());
+        saleMan.saleManShow();
     }
 }

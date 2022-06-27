@@ -12,11 +12,7 @@ package com.lql.behavior.tempalte;
 public class Client {
 
     public static void main(String[] args) {
-        CoffeeBeverage coffee = new Coffee();
-        coffee.prepareRecipe();
-
-        System.out.println("------------");
-        CoffeeBeverage tea = new Tea();
-        tea.prepareRecipe();
+        AbstractCookie cookie = new FriedCabbage();
+        cookie.cookieProcess();
     }
 }
