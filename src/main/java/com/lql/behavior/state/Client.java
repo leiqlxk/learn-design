@@ -12,27 +12,12 @@ package com.lql.behavior.state;
 public class Client {
 
     public static void main(String[] args) {
-        GumballMachine gumballMachine = new GumballMachine(5);
+        Context context = new Context();
+        context.setCurrentState(Context.OPENING_SATE);
 
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
-
-        gumballMachine.insertQuarter();
-        gumballMachine.ejectQuarter();
-        gumballMachine.turnCrank();
-
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
-        gumballMachine.ejectQuarter();
-
-        gumballMachine.insertQuarter();
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
-        gumballMachine.insertQuarter();
-        gumballMachine.turnCrank();
+        context.open();
+        context.close();
+        context.stop();
+        context.run();
     }
 }

@@ -7,20 +7,20 @@ package com.lql.behavior.command;
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/8/3 11:57 <br>
+ * @since: 2022/6/29 20:27 <br>
  */
 public class Client {
 
     public static void main(String[] args) {
-        Invoker invoker = new Invoker();
-        Light light = new Light();
-        Command lightOnCommand = new LightOnCommand(light);
-        Command lightOffCommand = new LightOffCommand(light);
+        Waiter waiter = new Waiter();
 
-        invoker.setOffCommands(lightOffCommand, 0);
-        invoker.setOnCommands(lightOnCommand, 0);
+        Order order = new Order();
+        order.setTableNum(1);
+        order.setFoodDic("干锅包菜", 1);
+        order.setFoodDic("干锅田鸡", 1);
+        OrderCommand orderCommand = new OrderCommand(order, new Chef());
 
-        invoker.onButtonWasPushed(0);
-        invoker.offButtonWasPushed(0);
+        waiter.addCommand(orderCommand);
+        waiter.orderUp();
     }
 }

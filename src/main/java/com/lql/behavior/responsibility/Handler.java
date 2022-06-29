@@ -3,21 +3,51 @@ package com.lql.behavior.responsibility;
 /**
  * Title: Handler <br>
  * ProjectName: learn-design <br>
- * description: 责任链模式 <br>
- * 使多个对象都有机会处理请求，从而避免请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链发送请求，直到有一个对象处理它为止。
+ * description: TODO <br>
  *
- * 定义处理请求的接口，并且实现后继链
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/8/3 11:21 <br>
+ * @since: 2022/6/29 20:32 <br>
  */
 public abstract class Handler {
+    public final static int NUM_ONE = 1;
+    public final static int NUM_TWO = 3;
+    public final static int NUM_THREE = 7;
 
-    protected Handler successor;
+    protected int startNum;
+    protected int endNum;
 
-    public Handler(Handler successor) {
-        this.successor = successor;
+    protected Handler nextHandler;
+
+    public Handler(int startNum) {
+        this.startNum = startNum;
     }
 
-    protected abstract void handleRequest(Request request);
+    public Handler(int startNum, int endNum) {
+        this.startNum = startNum;
+        this.endNum = endNum;
+    }
+
+    public void setNextHandler(Handler handler){
+        this.nextHandler = handler;
+    }
+
+    public abstract void handler(LeaveRequest leaveRequest);
+
+    public void submit(LeaveRequest leaveRequest) {
+        if(0 == this.startNum){
+            System.out.println("请填写请假天数");
+            return;
+        }
+
+        if (this.startNum <= leaveRequest.getDay()) {
+            this.handler(leaveRequest);
+
+            if (this.nextHandler != null && leaveRequest.getDay() > endNum) {
+                this.nextHandler.submit(leaveRequest);
+            }else {
+                System.out.println("结束流程");
+            }
+        }
+    }
 }
