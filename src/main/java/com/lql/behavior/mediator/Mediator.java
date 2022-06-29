@@ -3,14 +3,13 @@ package com.lql.behavior.mediator;
 /**
  * Title: Mediator <br>
  * ProjectName: learn-design <br>
- * description: 中介者模式 <br>
- * 集中相关对象之间复杂的沟通和控制方式
+ * description: TODO <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/8/4 10:52 <br>
+ * @since: 2022/6/29 21:33 <br>
  */
-public abstract class Mediator {
+public interface Mediator {
 
-    public abstract void doEvent(String eventType);
+    void concat(String msg, Person person);
 }

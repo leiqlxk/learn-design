@@ -7,18 +7,19 @@ package com.lql.behavior.mediator;
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/8/4 11:02 <br>
+ * @since: 2022/6/29 21:41 <br>
  */
 public class Client {
 
     public static void main(String[] args) {
-        Alarm alarm = new Alarm();
-        CoffeePot coffeePot = new CoffeePot();
-        Calender calender = new Calender();
-        Sprinkler sprinkler = new Sprinkler();
+        HouseOwner houseOwner = new HouseOwner();
+        Tenant tenant = new Tenant();
 
-        Mediator mediator = new ConcreteMediator(alarm, coffeePot, calender, sprinkler);
-        // 闹钟事件到达，调用中介者就可以操作相关对象
-        alarm.onEvent(mediator);
+        HouseMediator houseMediator = new HouseMediator(houseOwner, tenant);
+        houseOwner.setMediator(houseMediator);
+        tenant.setMediator(houseMediator);
+
+        houseOwner.concat("三房两室出租");
+        tenant.concat("租金多少");
     }
 }

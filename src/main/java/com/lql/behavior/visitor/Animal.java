@@ -1,15 +1,15 @@
 package com.lql.behavior.visitor;
 
 /**
- * Title: Element <br>
+ * Title: Animal <br>
  * ProjectName: learn-design <br>
  * description: TODO <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/8/6 15:04 <br>
+ * @since: 2022/6/29 21:53 <br>
  */
-public interface Element {
+public interface Animal {
 
-    void accept(Visitor visitor);
+    void accept(Person person);
 }

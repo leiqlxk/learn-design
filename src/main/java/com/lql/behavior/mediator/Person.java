@@ -1,15 +1,17 @@
 package com.lql.behavior.mediator;
 
 /**
- * Title: Colleague <br>
+ * Title: Person <br>
  * ProjectName: learn-design <br>
  * description: TODO <br>
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/8/4 10:51 <br>
+ * @since: 2022/6/29 21:34 <br>
  */
-public abstract class Colleague {
+public interface Person {
 
-    public abstract void onEvent(Mediator mediator);
+    void concat(String msg);
+
+    void getMsg(String msg);
 }
