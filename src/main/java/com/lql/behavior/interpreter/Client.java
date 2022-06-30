@@ -7,35 +7,24 @@ package com.lql.behavior.interpreter;
  *
  * @author: leiql <br>
  * @version: 1.0 <br>
- * @since: 2021/8/3 14:03 <br>
+ * @since: 2022/6/30 20:51 <br>
  */
 public class Client {
 
-    /**
-     * 构建解析树
-     */
-    public static Expression buildInterpreterTree() {
-        Expression terminal1 = new TerminalExpression("A");
-        Expression terminal2 = new TerminalExpression("B");
-        Expression terminal3 = new TerminalExpression("C");
-        Expression terminal4 = new TerminalExpression("D");
-
-        // B C
-        Expression alternation1 = new OrExpression(terminal2, terminal3);
-        // A OR (B OR C)
-        Expression alternation2 = new OrExpression(terminal1, alternation1);
-
-        // D AND (A OR (B OR C))
-        return new AndExpression(terminal4, alternation2);
-    }
-
     public static void main(String[] args) {
-        Expression define = buildInterpreterTree();
+        VariableExpression a = new VariableExpression("a");
+        VariableExpression b = new VariableExpression("b");
+        VariableExpression c = new VariableExpression("c");
+        VariableExpression d = new VariableExpression("d");
 
-        String context1 = "D A";
-        String context2 = "A B";
+        Context context = new Context();
+        context.assign(a, 10);
+        context.assign(b, 5);
+        context.assign(c, 7);
+        context.assign(d, 3);
 
-        System.out.println(define.interpreter(context1));
-        System.out.println(define.interpreter(context2));
+        Plus plus = new Plus(a, new Plus(b, new Minus(c, d)));
+        System.out.println(plus);
+        System.out.println(plus.interpreter(context));
     }
 }
